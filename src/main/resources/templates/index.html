@@ -3,8 +3,13 @@
 	<head>
     	<title>Viralsville</title>
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	
+    	<link href="../static/css/main.css"
+          th:href="@{css/main.css}" rel="stylesheet" media="screen"/>
 	</head>
 	<body>
     	<p th:text="'Welcome to Viralsville'" />
+    	<img src="../static/images/logo.png" width="1000"
+             th:src="@{images/logo.png}"/>
 	</body>
 </html>

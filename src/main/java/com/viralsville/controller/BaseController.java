@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class BaseController {
 
-    @RequestMapping("/")
+    @RequestMapping("/test")
     @ResponseBody
-    public String index() {
+    public String test() {
         return "This is Viralsville!";
     }
 
-    @RequestMapping("/home")
-    public String home() {
+    @RequestMapping("/")
+    public String index() {
         return "index";
     }
 }
