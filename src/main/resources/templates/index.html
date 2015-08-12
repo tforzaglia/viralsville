@@ -8,8 +8,19 @@
           th:href="@{css/main.css}" rel="stylesheet" media="screen"/>
 	</head>
 	<body>
-    	<p th:text="'Welcome to Viralsville'" />
-    	<img src="../static/images/logo.png" width="1000"
-             th:src="@{images/logo.png}"/>
+		<div id="header">
+			<div id="top-header">
+				<div id="logo-div">
+					<img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
+				</div>
+				<div id="nav-items">
+					<ul>
+						<li class="nav-item">Lulz</li>
+						<li class="nav-item">Dafuq</li>
+					</ul>
+				</div>
+			</div>
+			<div id="sub-header"></div>
+		</div>
 	</body>
 </html>
