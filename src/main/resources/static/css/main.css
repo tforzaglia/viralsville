@@ -43,6 +43,15 @@ html,body {
 	float: left;
 }
 
+#nav-items a {
+	text-decoration: none;
+	color: white;
+}
+
+#nav-items a:hover {
+	color: black;
+}
+
 .nav-item {
 	width: 90px;
 	display: table-cell;
@@ -51,7 +60,6 @@ html,body {
 	font-size: 30px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 	font-weight: normal;
-	color: white;
 }
 
 #search {
