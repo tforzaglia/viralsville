@@ -12,14 +12,12 @@ html,body {
 }
 
 #header {
-	margin-left: auto ;
-  	margin-right: auto ;
-	width: 1200px;
+	width: 100%;
 	height: 150px;
+	min-width: 1200px;
 }
 
 #top-header {
-	width: 1200px;
 	height: 75%;
 	background-color: #6ECCE2;
 }
@@ -93,7 +91,6 @@ html,body {
 }
 
 #sub-header {
-	width: 1200px;
 	height: 25%;
 	background-color: #594F4F;
 }
@@ -102,7 +99,7 @@ html,body {
 	width: 1200px;
 
 	display: flex;
-	align-items: center; /* align vertical */
+	align-items: center;
 }
 
 #sub-nav-items ul {
