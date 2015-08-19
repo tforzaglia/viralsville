@@ -151,5 +151,8 @@ html,body {
 #social-media-icon {
 	display: block;
 	width: 100%;
+}
 
+#social-media-icon:hover {
+	box-shadow: 0 0 0px black;
 }
