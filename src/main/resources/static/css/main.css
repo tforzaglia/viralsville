@@ -162,7 +162,6 @@ html,body {
 #main-content {
 	width: 575px;
 	height: auto;
-	background-color: green;
 	float: left;
 	margin-left: 120px;
 	text-align: center;
@@ -185,13 +184,18 @@ html,body {
 	display: block;
 	height: 300px;
 	width: 450px;
-	background-color: black;
+	background-color: #594F4F;
+}
+
+.content img {
+	height: 275px;
+	width: 425px;
+	margin: 10px auto;
 }
 
 #trending {
 	width: 375px;
 	height: auto;
-	background-color: orange;
 	float: left;
 }
 
