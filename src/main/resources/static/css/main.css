@@ -168,12 +168,24 @@ html,body {
 	text-align: center;
 }
 
+.post {
+	display: block;
+	height: 320px;
+	width: 450px;
+	margin: 20px auto;
+}
+
+.post h2 {
+	font-size: 20px;
+	text-align: left;
+	margin-bottom: 0px;
+}
+
 .content {
 	display: block;
 	height: 300px;
 	width: 450px;
 	background-color: black;
-	margin: 20px auto;
 }
 
 #trending {
@@ -181,6 +193,13 @@ html,body {
 	height: auto;
 	background-color: orange;
 	float: left;
+}
+
+.trending-content {
+	height: 150px;
+	width: 225px;
+	background-color: black;
+	margin: 20px auto;
 }
 
 #side-ads {
