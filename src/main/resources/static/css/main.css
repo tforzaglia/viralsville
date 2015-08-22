@@ -93,18 +93,17 @@ html,body {
 }
 
 #sub-header {
-	height: 25%;
+	height: 40px;
 	background-color: #594F4F;
 }
 
 #sub-nav-items {
 	width: 1200px;
-
-	display: flex;
-	align-items: center;
+	height: 40px;
 }
 
 #sub-nav-items ul {
+	height: 40px;
 	margin: 0px 0px 0px 0px;
 }
 
@@ -119,6 +118,7 @@ html,body {
 
 .sub-nav-item {
 	width: 90px;
+
 	display: table-cell;
 
 	text-align: center;
@@ -135,8 +135,7 @@ html,body {
 
 #body-wrapper {
 	width: 100%;
-	height: 100%;
-	min-height: 1650px;
+	min-height: 1710px;
 	min-width: 1200px;
 	text-align: center;
 }
@@ -211,4 +210,79 @@ html,body {
 	height: auto;
 	background-color: black;
 	float: left;
+}
+
+/* FOOTER */
+
+#footer-wrapper {
+	width: 100%;
+	min-height: 250px;
+	min-width: 1200px;
+}
+
+#page-selector {
+	width: inherit;
+	float: left;
+	height: 50px;
+}
+
+.page-button {
+	margin-left: 180px;
+
+	background: #6ECCE2;
+  	background-image: -webkit-linear-gradient(top, #6ECCE2, #6ECCE2);
+  	background-image: -moz-linear-gradient(top, #6ECCE2, #6ECCE2);
+  	background-image: -ms-linear-gradient(top, #6ECCE2, #6ECCE2);
+  	background-image: -o-linear-gradient(top, #6ECCE2, #6ECCE2);
+  	background-image: linear-gradient(to bottom, #6ECCE2, #6ECCE2);
+
+  	-webkit-border-radius: 10;
+  	-moz-border-radius: 10;
+  	border-radius: 10px;
+
+  	font-family: Arial;
+  	color: white;
+  	font-size: 20px;
+  	padding: 10px 20px 10px 20px;
+  	border: solid #F2852E 2px;
+  	text-decoration: none;
+}
+
+.page-button:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#lower-ads {
+	width: inherit;
+	height: 150px;
+	float: left;
+}
+
+#footer {
+	width: inherit;
+	height: 250px;
+	background-color: #594F4F;
+	float: left;
+}
+
+#join-us-div {
+	margin-left: 150px;
+	margin-top: 50px;
+	color: white;
+	font-size: 25px;
+}
+
+#copyright {
+	text-align: center;
+	margin-top: 30px;
+	font-size: 20px;
+	color: white;
 }
