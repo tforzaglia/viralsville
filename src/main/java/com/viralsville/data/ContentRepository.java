@@ -2,6 +2,7 @@ package com.viralsville.data;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 import com.viralsville.model.Content;
+import com.viralsville.model.ContentType;
 
 @Repository
 public class ContentRepository {
@@ -28,19 +30,28 @@ public class ContentRepository {
         return this.jdbc.query( "SELECT * FROM content WHERE id IN (" + inIds + ")", contentMapper );
     }
 
-    public void createContent( String title ) {
-        String sql = "INSERT INTO content (title) VALUES(?)";
+    public void createContent( Content content ) {
+        String sql = "INSERT INTO content (title, external_link, content_type, created_date, views) VALUES(?,?,?,?,?)";
         this.jdbc.update( sql, new Object[] {
-            title
+                content.getTitle(),
+                content.getExternalLink(),
+                content.getContentType().name(),
+                content.getCreatedDate(),
+                content.getViews()
         } );
     }
 
     private static final RowMapper<Content> contentMapper = new RowMapper<Content>() {
         @Override
         public Content mapRow( ResultSet rs, int rowNum ) throws SQLException {
-            Content content = new Content( rs.getString( "title" ) );
+            Content content = new Content();
             content.setId( rs.getLong( "id" ) );
             content.setTitle( rs.getString( "title" ) );
+            content.setExternalLink( rs.getString( "external_link" ) );
+            content.setContentType( ContentType.valueOf( rs.getString( "content_type" ) ) );
+            content.setCreatedDate( new Date( rs.getTimestamp( "created_date" ).getTime() ) );
+            content.setViews( rs.getInt( "views" ) );
+
             return content;
         }
     };
