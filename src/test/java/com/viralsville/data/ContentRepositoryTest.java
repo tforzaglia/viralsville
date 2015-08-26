@@ -1,6 +1,7 @@
 package com.viralsville.data;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -37,10 +38,18 @@ public class ContentRepositoryTest {
     }
 
     @Test
+    public void testGetContentListByPageNumber() {
+        List<Content> contentList = this.contentRepository.getContentListByPageNumber( 2 );
+        for ( Content content : contentList ) {
+            System.out.println( content.getTitle() );
+        }
+    }
+
+    @Test
     public void testInsertContent() {
         Content content = new Content();
-        content.setTitle( "Github you so nasty..." );
-        content.setExternalLink( "http://i.imgur.com/GWIMwyx.png" );
+        content.setTitle( "Final Fantasy jobs as programming languages" );
+        content.setExternalLink( "http://i.imgur.com/1G5ON8M.png" );
         content.setContentType( ContentType.IMAGE );
         content.setCreatedDate( new Date() );
         content.setViews( 0L );

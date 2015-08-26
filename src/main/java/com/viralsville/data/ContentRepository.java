@@ -18,6 +18,8 @@ import com.viralsville.model.ContentType;
 @Repository
 public class ContentRepository {
 
+    private static final int CONTENT_PER_PAGE = 5;
+
     @Autowired
     protected JdbcTemplate jdbc;
 
@@ -28,6 +30,10 @@ public class ContentRepository {
     public List<Content> getContents( long[] ids ) {
         String inIds = StringUtils.arrayToCommaDelimitedString( ObjectUtils.toObjectArray( ids ) );
         return this.jdbc.query( "SELECT * FROM content WHERE id IN (" + inIds + ")", contentMapper );
+    }
+
+    public List<Content> getContentListByPageNumber( int pageNumber ) {
+        return this.jdbc.query( "SELECT * FROM content LIMIT ?,?", contentMapper, CONTENT_PER_PAGE * ( pageNumber - 1 ), CONTENT_PER_PAGE );
     }
 
     public void createContent( Content content ) {

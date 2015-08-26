@@ -1,5 +1,7 @@
 package com.viralsville.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +20,13 @@ public class ContentController {
     private ContentRepository contentRepository;
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public Content getUser( @RequestParam("id") long id ) {
+    public Content getContent( @RequestParam("id") long id ) {
         return this.contentRepository.getContent( id );
+    }
+
+    @RequestMapping(value = "/getByPage", method = RequestMethod.GET)
+    public List<Content> getContentListByPageNumber( @RequestParam("page") int pageNumber ) {
+        return this.contentRepository.getContentListByPageNumber( pageNumber );
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
