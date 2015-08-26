@@ -6,6 +6,19 @@
     	
     	<link href="../static/css/main.css"
           th:href="@{css/main.css}" rel="stylesheet" media="screen"/>
+
+		<script type="text/javascript"
+				src="../static/javascript/external/jquery-ui-1.11.2.custom/external/jquery/jquery.js"
+				th:src="@{javascript/external/jquery-ui-1.11.2.custom/external/jquery/jquery.js}">
+		</script>
+		<script type="text/javascript"
+				src="../static/javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js"
+				th:src="@{javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js}">
+		</script>
+		<script type="text/javascript"
+				src="../static/javascript/main.js"
+				th:src="@{javascript/main.js}">
+		</script>
 	</head>
 	<body>
 		<div id="header">
@@ -23,7 +36,7 @@
 				</div>
 				<div id="search">
 					<div id="search-box">
-						<input type="text">
+						<input type="text"/>
 					</div>
 					<div id="search-image">
 						<img src="../static/images/searchbutton.gif" th:src="@{images/searchbutton.gif}"/>
@@ -55,13 +68,13 @@
 				<div class="post">
 					<h2>They just don't know how to quit</h2>
 					<div class="content">
-						<a href="http://www.viralsville.com/content/1"><img src="http://i.imgur.com/D7WRSfz.png"></a>
+						<a href="http://www.viralsville.com/content/1"><img src="http://i.imgur.com/D7WRSfz.png"/></a>
 					</div>
 				</div>
 				<div class="post">
 					<h2>Github you so nasty...</h2>
 					<div class="content">
-						<a href="http://www.viralsville.com/content/2"><img src="http://i.imgur.com/GWIMwyx.png"></a>
+						<a href="http://www.viralsville.com/content/2"><img src="http://i.imgur.com/GWIMwyx.png"/></a>
 					</div>
 				</div>
 				<div class="post">
