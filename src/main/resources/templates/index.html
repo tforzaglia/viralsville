@@ -67,7 +67,12 @@
 				<div th:each="content : ${contents}" class="post">
 					<h2 th:text="${content.title}">Content Title</h2>
 					<div class="content">
-						<a th:href="'http://www.viralsville.com/content/' + ${content.id}"><img th:src="${content.externalLink}"/></a>
+						<a th:href="'http://www.viralsville.com/content/' + ${content.id}">
+							<img th:if="${content.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${content.externalLink}"/>
+							<video th:if="${content.contentType == T(com.viralsville.model.ContentType).VIDEO}" controls="controls"> 
+								<source th:src="${content.externalLink}"/>
+							</video>
+						</a>
 					</div>
 				</div>
 			</div>

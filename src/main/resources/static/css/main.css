@@ -192,6 +192,12 @@ html,body {
 	margin: 10px auto;
 }
 
+.content video {
+	height: 275px;
+	width: 425px;
+	margin: 10px auto;
+}
+
 #trending {
 	width: 375px;
 	height: auto;
