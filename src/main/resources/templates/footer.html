@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+    	<title>Viralsville</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    	
+    	<link href="../static/css/main.css"
+          th:href="@{css/main.css}" rel="stylesheet" media="screen"/>
+	</head>
+	<body>
+		<div th:fragment="footer">	
+			<div id="page-selector">
+				<button class="page-button" type="button" onclick="alert('Hello world!')">Next Page</button>
+			</div>
+			<div id="lower-ads"></div>
+			<div id="footer">
+				<div id="join-us-div">
+					<p>BECOME A SCRUB TODAY</p>
+					<a href="https://www.facebook.com/viralsville"><img src="../static/images/facebook.png" th:src="@{images/facebook.png}"/></a>
+					<a href="https://www.twitter.com/viralsville"><img src="../static/images/twitter.png" th:src="@{images/twitter.png}"/></a>
+				</div>
+				<div id="copyright">
+					<p>2015 Viralsville LLC. Terms Privacy</p>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
