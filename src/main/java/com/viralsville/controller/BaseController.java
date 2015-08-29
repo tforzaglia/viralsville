@@ -21,13 +21,20 @@ public class BaseController {
     public String index( Model model ) {
         List<Content> contents = this.contentRepository.getContentListByPageNumber( 1 );
         model.addAttribute( "contents", contents );
-        return "redirect:/content?page=1";
+        return "redirect:/latest?page=1";
     }
 
-    @RequestMapping("/content")
-    public String content( @RequestParam("page") int pageNumber, Model model ) {
+    @RequestMapping("/latest")
+    public String latest( @RequestParam("page") int pageNumber, Model model ) {
         List<Content> contents = this.contentRepository.getContentListByPageNumber( pageNumber );
         model.addAttribute( "contents", contents );
         return "index";
+    }
+
+    @RequestMapping("/content")
+    public String content( @RequestParam("id") long id, Model model ) {
+        Content content = this.contentRepository.getContent( id );
+        model.addAttribute( "content", content );
+        return "content";
     }
 }
