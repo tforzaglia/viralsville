@@ -3,58 +3,11 @@
 	<head>
     	<title>Viralsville</title>
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    	
     	<link href="../static/css/main.css"
           th:href="@{css/main.css}" rel="stylesheet" media="screen"/>
-
-		<script type="text/javascript"
-				src="../static/javascript/external/jquery-ui-1.11.2.custom/external/jquery/jquery.js"
-				th:src="@{javascript/external/jquery-ui-1.11.2.custom/external/jquery/jquery.js}">
-		</script>
-		<script type="text/javascript"
-				src="../static/javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js"
-				th:src="@{javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js}">
-		</script>
-		<script type="text/javascript"
-				src="../static/javascript/main.js"
-				th:src="@{javascript/main.js}">
-		</script>
 	</head>
 	<body>
-		<div id="header">
-			<div id="top-header">
-				<div id="logo-div">
-					<img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
-				</div>
-				<div id="nav-items">
-					<ul>
-						<li class="nav-item"><a href="lulz.html">Lulz</a></li>
-						<li class="nav-item"><a href="dafuq.html">Dafuq</a></li>
-						<li class="nav-item"><a href="zero-morale.html">0morale</a></li>
-						<li class="nav-item"><a href="fail.html">FAIL</a></li>
-					</ul>
-				</div>
-				<div id="search">
-					<div id="search-box">
-						<input type="text"/>
-					</div>
-					<div id="search-image">
-						<img src="../static/images/searchbutton.gif" th:src="@{images/searchbutton.gif}"/>
-					</div>
-				</div>
-			</div>
-			<div id="sub-header">
-				<div id="sub-nav-items">
-					<ul>
-						<li class="sub-nav-item"><a href="filthy.html">filthy</a></li>
-						<li class="sub-nav-item"><a href="mygawd.html">mygawd</a></li>
-						<li class="sub-nav-item"><a href="best.html">Best</a></li>
-						<li class="sub-nav-item"><a href="worst.html">Worst</a></li>
-						<li class="sub-nav-item"><a href="science-bitch.html">ScienceBitch!</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
+		<div id="header" th:include="header :: header"></div>
 		<div id="body-wrapper">
 			<div id="social-media-div">
 				<a href="https://www.facebook.com/"><img id="social-media-icon" src="../static/images/facebook.png" th:src="@{images/facebook.png}"/></a>
@@ -76,30 +29,8 @@
 					</div>
 				</div>
 			</div>
-			<div id="trending">
-				<div class="trending-content"></div>
-				<div class="trending-content"></div>
-				<div class="trending-content"></div>
-				<div class="trending-content"></div>
-				<div class="trending-content"></div>
-			</div>
-			<div id="side-ads"></div>
+			<div th:include="trendingAndAds :: right-side"></div>
 		</div>
-		<div id="footer-wrapper">
-			<div id="page-selector">
-				<button class="page-button" type="button" onclick="alert('Hello world!')">Next Page</button>
-			</div>
-			<div id="lower-ads"></div>
-			<div id="footer">
-				<div id="join-us-div">
-					<p>BECOME A SCRUB TODAY</p>
-					<a href="https://www.facebook.com/viralsville"><img src="../static/images/facebook.png" th:src="@{images/facebook.png}"/></a>
-					<a href="https://www.twitter.com/viralsville"><img src="../static/images/twitter.png" th:src="@{images/twitter.png}"/></a>
-				</div>
-				<div id="copyright">
-					<p>2015 Viralsville LLC. Terms Privacy</p>
-				</div>
-			</div>
-		</div>
+		<div id="footer-wrapper" th:include="footer :: footer"></div>
 	</body>
 </html>
