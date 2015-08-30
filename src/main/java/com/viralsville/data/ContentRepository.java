@@ -47,6 +47,10 @@ public class ContentRepository {
         } );
     }
 
+    public void updateContentViews( Content content ) {
+        this.jdbc.update( "UPDATE content SET views=? WHERE id=?", content.getViews(), content.getId() );
+    }
+
     private static final RowMapper<Content> contentMapper = new RowMapper<Content>() {
         @Override
         public Content mapRow( ResultSet rs, int rowNum ) throws SQLException {

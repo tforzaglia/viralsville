@@ -34,7 +34,10 @@ public class BaseController {
     @RequestMapping("/content")
     public String content( @RequestParam("id") long id, Model model ) {
         Content content = this.contentRepository.getContent( id );
+        content.setViews( content.getViews() + 1 );
+        this.contentRepository.updateContentViews( content );
         model.addAttribute( "content", content );
+
         return "content";
     }
 }

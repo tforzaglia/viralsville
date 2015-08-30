@@ -149,17 +149,17 @@ html,body {
 	float: left;
 }
 
-#social-media-icon {
+.social-media-icon {
 	display: block;
 	width: 100%;
 }
 
-#social-media-icon:hover {
+.social-media-icon:hover {
 	box-shadow: 0 0 5px black;
 }
 
 #main-content {
-	width: 575px;
+	width: 615px;
 	height: auto;
 	float: left;
 	margin-left: 120px;
@@ -212,7 +212,7 @@ html,body {
 }
 
 #side-ads {
-	width: 230px;
+	width: 190px;
 	height: auto;
 	background-color: black;
 	float: left;
@@ -291,4 +291,25 @@ html,body {
 	margin-top: 30px;
 	font-size: 20px;
 	color: white;
+}
+
+/* CONTENT PAGE */
+
+#single-main-content {
+	width: 615px;
+	height: auto;
+	float: left;
+	margin-left: 120px;
+	text-align: center;
+}
+
+#single-content {
+	width: inherit;
+	height: auto;
+	margin-top: 75px;
+}
+
+#single-content img {
+	width: inherit;
+	height: auto;
 }

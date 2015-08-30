@@ -16,21 +16,16 @@
 				<a href="https://www.pinterest.com/"><img class="social-media-icon" src="../static/images/pinterest.png" th:src="@{images/pinterest.png}"/></a>
 				<a href="https://www.blogger.com/"><img class="social-media-icon" src="../static/images/blogger.png" th:src="@{images/blogger.png}"/></a>
 			</div>
-			<div id="main-content">
-				<div th:each="content : ${contents}" class="post">
-					<h2 th:text="${content.title}">Content Title</h2>
-					<div class="content">
-						<a th:href="'http://localhost:8080/content?id=' + ${content.id}">
-							<img th:if="${content.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${content.externalLink}"/>
-							<video th:if="${content.contentType == T(com.viralsville.model.ContentType).VIDEO}" controls="controls"> 
-								<source th:src="${content.externalLink}"/>
-							</video>
-						</a>
-					</div>
+			<div id="single-main-content">
+				<div id="single-content">
+					<img th:if="${content.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${content.externalLink}"/>
+					<video th:if="${content.contentType == T(com.viralsville.model.ContentType).VIDEO}" controls="controls"> 
+						<source th:src="${content.externalLink}"/>
+					</video>
 				</div>
 			</div>
 			<div th:include="trendingAndAds :: right-side"></div>
 		</div>
-		<div id="footer-wrapper" th:include="footer :: footer"></div>
+		<div id="footer-wrapper" th:include="content-footer :: footer"></div>
 	</body>
 </html>

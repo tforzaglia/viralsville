@@ -55,4 +55,13 @@ public class ContentRepositoryTest {
         content.setViews( 0L );
         this.contentRepository.createContent( content );
     }
+
+    @Test
+    public void testUpdateContentViews() {
+        Content content = this.contentRepository.getContent( 1L );
+        System.out.print( "Old views number = " + content.getViews() );
+        content.setViews( content.getViews() + 1 );
+        this.contentRepository.updateContentViews( content );
+        System.out.print( "New views number = " + content.getViews() );
+    }
 }
