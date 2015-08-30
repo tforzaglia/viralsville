@@ -12,13 +12,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
+import com.viralsville.constants.Constants;
 import com.viralsville.model.Content;
 import com.viralsville.model.ContentType;
 
 @Repository
 public class ContentRepository {
-
-    private static final int CONTENT_PER_PAGE = 5;
 
     @Autowired
     protected JdbcTemplate jdbc;
@@ -33,7 +32,7 @@ public class ContentRepository {
     }
 
     public List<Content> getContentListByPageNumber( int pageNumber ) {
-        return this.jdbc.query( "SELECT * FROM content LIMIT ?,?", contentMapper, CONTENT_PER_PAGE * ( pageNumber - 1 ), CONTENT_PER_PAGE );
+        return this.jdbc.query( "SELECT * FROM content LIMIT ?,?", contentMapper, Constants.CONTENT_PER_PAGE * ( pageNumber - 1 ), Constants.CONTENT_PER_PAGE );
     }
 
     public void createContent( Content content ) {
@@ -49,6 +48,10 @@ public class ContentRepository {
 
     public void updateContentViews( Content content ) {
         this.jdbc.update( "UPDATE content SET views=? WHERE id=?", content.getViews(), content.getId() );
+    }
+
+    public Integer getNumberOfRows() {
+        return this.jdbc.queryForObject( "SELECT COUNT(*) FROM content;", Integer.class );
     }
 
     private static final RowMapper<Content> contentMapper = new RowMapper<Content>() {

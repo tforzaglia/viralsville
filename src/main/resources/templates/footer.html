@@ -9,7 +9,9 @@
 	<body>
 		<div th:fragment="footer">	
 			<div id="page-selector">
-				<button class="page-button" type="button" onclick="alert('Hello world!')">Next Page</button>
+				<a th:href="'http://localhost:8080/latest?page=' + ${nextPage}">
+					<button th:if="${onLastPage != 'true'}" class="page-button" type="button">Next Page</button>
+				</a>
 			</div>
 			<div id="lower-ads"></div>
 			<div id="footer">

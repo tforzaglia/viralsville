@@ -64,4 +64,9 @@ public class ContentRepositoryTest {
         this.contentRepository.updateContentViews( content );
         System.out.print( "New views number = " + content.getViews() );
     }
+
+    @Test
+    public void testGetTotalNumberOfRows() {
+        System.out.println( this.contentRepository.getNumberOfRows() );
+    }
 }
