@@ -29,6 +29,9 @@ public class BaseController {
 
     @RequestMapping("/latest")
     public String latest( @RequestParam("page") int pageNumber, Model model ) {
+        if ( pageNumber < 1 ) {
+            return "redirect:/latest?page=1";
+        }
         List<Content> contents = this.contentRepository.getContentListByPageNumber( pageNumber );
         if ( contents.size() == 0 ) {
             return "redirect:/latest?page=1";
@@ -37,7 +40,7 @@ public class BaseController {
             model.addAttribute( "onLastPage", "true" );
         }
         model.addAttribute( "contents", contents );
-        model.addAttribute( "nextPage", pageNumber + 1 );
+        model.addAttribute( "currentPage", pageNumber );
 
         return "index";
     }
