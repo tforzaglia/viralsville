@@ -32,7 +32,7 @@ public class ContentRepository {
     }
 
     public List<Content> getContentListByPageNumber( int pageNumber ) {
-        return this.jdbc.query( "SELECT * FROM content LIMIT ?,?", contentMapper, Constants.CONTENT_PER_PAGE * ( pageNumber - 1 ), Constants.CONTENT_PER_PAGE );
+        return this.jdbc.query( "SELECT * FROM content ORDER BY created_date DESC LIMIT ?,?", contentMapper, Constants.CONTENT_PER_PAGE * ( pageNumber - 1 ), Constants.CONTENT_PER_PAGE );
     }
 
     public void createContent( Content content ) {
