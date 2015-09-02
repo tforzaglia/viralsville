@@ -2,6 +2,7 @@ package com.viralsville.data;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -33,6 +34,12 @@ public class ContentRepository {
 
     public List<Content> getContentListByPageNumber( int pageNumber ) {
         return this.jdbc.query( "SELECT * FROM content ORDER BY created_date DESC LIMIT ?,?", contentMapper, Constants.CONTENT_PER_PAGE * ( pageNumber - 1 ), Constants.CONTENT_PER_PAGE );
+    }
+
+    public List<Content> getTrendingContentList() {
+        SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd" );
+        String currentDaySql = formatter.format( new Date() ) + "%";
+        return this.jdbc.query( "select * from content where created_date LIKE ? ORDER BY views DESC LIMIT ?", contentMapper, currentDaySql, Constants.TRENDING_PER_PAGE );
     }
 
     public void createContent( Content content ) {

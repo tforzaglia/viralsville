@@ -245,8 +245,20 @@ html,body {
 .trending-content {
 	height: 150px;
 	width: 225px;
-	background-color: black;
+	background-color: #594F4F;
 	margin: 20px auto;
+}
+
+.trending-content img {
+	height: 140px;
+	width: 215px;
+	margin: 5px auto;
+}
+
+.trending-content video {
+	height: 140px;
+	width: 215px;
+	margin: 5px auto;
 }
 
 #side-ads {

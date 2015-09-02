@@ -48,9 +48,9 @@ public class ContentRepositoryTest {
     @Test
     public void testInsertContent() {
         Content content = new Content();
-        content.setTitle( "Cool" );
-        content.setExternalLink( "https://video-lga1-1.xx.fbcdn.net/hvideo-xtf1/v/t43.1792-2/11014183_326058660938294_1442671678_n.mp4?efg=eyJybHIiOjE1MDAsInJsYSI6MTAyNH0%3D&rl=1500&vabr=367&oh=86b1ceeae08e76aa86076a67f4f5655d&oe=55DFDAD9" );
-        content.setContentType( ContentType.VIDEO );
+        content.setTitle( "Checking for a solution" );
+        content.setExternalLink( "http://imgur.com/OwsE0iO" );
+        content.setContentType( ContentType.IMAGE );
         content.setCreatedDate( new Date() );
         content.setViews( 0L );
         this.contentRepository.createContent( content );
@@ -68,5 +68,11 @@ public class ContentRepositoryTest {
     @Test
     public void testGetTotalNumberOfRows() {
         System.out.println( this.contentRepository.getNumberOfRows() );
+    }
+
+    @Test
+    public void testGetTrending() {
+        List<Content> trending = this.contentRepository.getTrendingContentList();
+        System.out.println( trending.size() );
     }
 }

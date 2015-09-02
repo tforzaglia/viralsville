@@ -40,6 +40,7 @@ public class BaseController {
             model.addAttribute( "onLastPage", "true" );
         }
         model.addAttribute( "contents", contents );
+        model.addAttribute( "trending", this.getTrendingContent() );
         model.addAttribute( "currentPage", pageNumber );
 
         return "index";
@@ -51,7 +52,12 @@ public class BaseController {
         content.setViews( content.getViews() + 1 );
         this.contentRepository.updateContentViews( content );
         model.addAttribute( "content", content );
+        model.addAttribute( "trending", this.getTrendingContent() );
 
         return "content";
+    }
+
+    private List<Content> getTrendingContent() {
+        return this.contentRepository.getTrendingContentList();
     }
 }

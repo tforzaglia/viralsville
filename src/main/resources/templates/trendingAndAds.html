@@ -9,12 +9,15 @@
 	<body>
 		<div th:fragment="right-side">
 			<div id="trending">
-				<div class="trending-content"></div>
-				<div class="trending-content"></div>
-				<div class="trending-content"></div>
-				<div class="trending-content"></div>
-				<div class="trending-content"></div>
-			</div>			
+				<div th:each="trendingContent : ${trending}" class="trending-content">
+					<a th:href="'http://localhost:8080/content?id=' + ${trendingContent.id}">
+						<img th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${trendingContent.externalLink}"/>
+						<video th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).VIDEO}" controls="controls"> 
+							<source th:src="${trendingContent.externalLink}"/>
+						</video>
+					</a>
+				</div>
+			</div>
 			<div id="side-ads"></div>
 		</div>
 	</body>
