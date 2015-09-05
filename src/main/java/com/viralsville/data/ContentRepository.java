@@ -36,6 +36,16 @@ public class ContentRepository {
         return this.jdbc.query( "SELECT * FROM content ORDER BY created_date DESC LIMIT ?,?", contentMapper, Constants.CONTENT_PER_PAGE * ( pageNumber - 1 ), Constants.CONTENT_PER_PAGE );
     }
 
+    public List<Content> getContentListByPageNumberAndTag( int pageNumber, long tagId ) {
+        /**
+         * SELECT content.*
+         * FROM content
+         * INNER JOIN content_tags
+         * ON content.id=content_tags.content_id AND content_tags.tag_id=11;
+         */
+        return null;
+    }
+
     public List<Content> getTrendingContentList() {
         SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd" );
         String currentDaySql = formatter.format( new Date() ) + "%";

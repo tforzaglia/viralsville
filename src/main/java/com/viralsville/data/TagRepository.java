@@ -2,6 +2,7 @@ package com.viralsville.data;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,10 +21,14 @@ public class TagRepository {
         return this.jdbc.queryForObject( "SELECT * FROM tags WHERE id=?", tagMapper, id );
     }
 
+    public List<Tag> getAllTags() {
+        return this.jdbc.query( "SELECT * FROM tags", tagMapper );
+    }
+
     public void createTag( Tag tag ) {
         String sql = "INSERT INTO tags (name) VALUES(?)";
         this.jdbc.update( sql, new Object[] {
-                tag.getName()
+            tag.getName()
         } );
     }
 
