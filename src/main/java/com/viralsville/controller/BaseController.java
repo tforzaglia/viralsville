@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,15 +27,18 @@ public class BaseController {
     private ContentRepository contentRepository;
 
     @Autowired
-    private static TagRepository tagRepository;
+    private TagRepository tagRepository;
 
-    private static Map<String, Long> tagMap;
+    private Map<String, Long> tagMap;
 
-    static {
-        List<Tag> tags = tagRepository.getAllTags();
-        tagMap = new HashMap<String, Long>();
+    private Logger log = Logger.getLogger( BaseController.class );
+
+    @PostConstruct
+    private void fillInTagMap() {
+        List<Tag> tags = this.tagRepository.getAllTags();
+        this.tagMap = new HashMap<String, Long>();
         for ( Tag tag : tags ) {
-            tagMap.put( tag.getName(), tag.getId() );
+            this.tagMap.put( tag.getName(), tag.getId() );
         }
     }
 
@@ -54,18 +60,21 @@ public class BaseController {
 
         List<Content> contents = new ArrayList<>();
         if ( tag != null ) {
-            Long tagId = tagMap.get( tag );
+            Long tagId = this.tagMap.get( tag );
+            this.log.info( "Tag name = " + tag + " tag id = " + tagId );
             contents = this.contentRepository.getContentListByPageNumberAndTag( pageNumber, tagId );
         } else {
             contents = this.contentRepository.getContentListByPageNumber( pageNumber );
         }
 
         if ( contents.size() == 0 ) {
+            this.log.info( "No content returned. Redirecting to page 1" );
             return "redirect:/latest?page=1";
         }
 
         if ( contents.size() < Constants.CONTENT_PER_PAGE || this.contentRepository.getNumberOfRows() == Constants.CONTENT_PER_PAGE * pageNumber ) {
             model.addAttribute( "onLastPage", "true" );
+            this.log.info( "Now on the last page" );
         }
         model.addAttribute( "contents", contents );
         model.addAttribute( "trending", this.getTrendingContent() );

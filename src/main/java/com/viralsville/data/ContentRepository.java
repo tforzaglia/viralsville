@@ -37,13 +37,7 @@ public class ContentRepository {
     }
 
     public List<Content> getContentListByPageNumberAndTag( int pageNumber, long tagId ) {
-        /**
-         * SELECT content.*
-         * FROM content
-         * INNER JOIN content_tags
-         * ON content.id=content_tags.content_id AND content_tags.tag_id=11;
-         */
-        return null;
+        return this.jdbc.query( "SELECT content.* FROM content INNER JOIN content_tags ON content.id=content_tags.content_id AND content_tags.tag_id=? ORDER BY content.created_date DESC LIMIT ?,?", contentMapper, tagId, Constants.CONTENT_PER_PAGE * ( pageNumber - 1 ), Constants.CONTENT_PER_PAGE );
     }
 
     public List<Content> getTrendingContentList() {
