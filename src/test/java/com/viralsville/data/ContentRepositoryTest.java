@@ -78,7 +78,7 @@ public class ContentRepositoryTest {
 
     @Test
     public void testGetContentByTag() {
-        List<Content> contentList = this.contentRepository.getContentListByPageNumberAndTag( 1, 11 );
+        List<Content> contentList = this.contentRepository.getContentListByPageNumberAndTag( 1, 10 );
         for ( Content content : contentList ) {
             System.out.println( content.getTitle() );
         }

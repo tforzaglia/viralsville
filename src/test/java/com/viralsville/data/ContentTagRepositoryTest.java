@@ -25,7 +25,7 @@ public class ContentTagRepositoryTest {
 
     @Test
     public void testCreateContentTag() {
-        this.contentTagsRepository.createContentTagAssociation( 23L, 11L );
+        this.contentTagsRepository.createContentTagAssociation( 23L, 10L );
     }
 
     @Test

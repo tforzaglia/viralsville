@@ -52,7 +52,6 @@ public class TagRepositoryTest {
         Tag tag7 = new Tag( "worst" );
         Tag tag8 = new Tag( "sciencebitch" );
         Tag tag9 = new Tag( "pets" );
-        Tag tag10 = new Tag( "cats" );
 
         List<Tag> tags = new ArrayList<>();
         tags.add( tag1 );
@@ -64,7 +63,6 @@ public class TagRepositoryTest {
         tags.add( tag7 );
         tags.add( tag8 );
         tags.add( tag9 );
-        tags.add( tag10 );
 
         for ( Tag tag : tags ) {
             this.tagRepository.createTag( tag );
