@@ -48,8 +48,8 @@ public class ContentRepositoryTest {
     @Test
     public void testInsertContent() {
         Content content = new Content();
-        content.setTitle( "Checking for a solution" );
-        content.setExternalLink( "http://imgur.com/OwsE0iO" );
+        content.setTitle( "Purrito" );
+        content.setExternalLink( "http://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" );
         content.setContentType( ContentType.IMAGE );
         content.setCreatedDate( new Date() );
         content.setViews( 0L );
@@ -74,5 +74,13 @@ public class ContentRepositoryTest {
     public void testGetTrending() {
         List<Content> trending = this.contentRepository.getTrendingContentList();
         System.out.println( trending.size() );
+    }
+
+    @Test
+    public void testGetContentByTag() {
+        List<Content> contentList = this.contentRepository.getContentListByPageNumberAndTag( 1, 11 );
+        for ( Content content : contentList ) {
+            System.out.println( content.getTitle() );
+        }
     }
 }

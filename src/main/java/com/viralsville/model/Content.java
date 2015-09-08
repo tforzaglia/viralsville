@@ -1,6 +1,7 @@
 package com.viralsville.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Content {
 
@@ -10,16 +11,18 @@ public class Content {
     private ContentType contentType;
     private Date createdDate;
     private long views;
+    private List<Tag> tags;
 
     public Content() {
     };
 
-    public Content( String title, String externalLink, ContentType contentType, Date createdDate, int views ) {
+    public Content( String title, String externalLink, ContentType contentType, Date createdDate, int views, List<Tag> tags ) {
         this.title = title;
         this.externalLink = externalLink;
         this.contentType = contentType;
         this.createdDate = createdDate;
         this.views = views;
+        this.tags = tags;
     }
 
     public long getId() {
@@ -68,5 +71,13 @@ public class Content {
 
     public void setViews( long views ) {
         this.views = views;
+    }
+
+    public List<Tag> getTags() {
+        return this.tags;
+    }
+
+    public void setTags( List<Tag> tags ) {
+        this.tags = tags;
     }
 }

@@ -34,6 +34,14 @@ public class TagRepositoryTest {
     }
 
     @Test
+    public void testGetAllTags() {
+        List<Tag> tags = this.tagRepository.getAllTags();
+        for ( Tag tag : tags ) {
+            System.out.println( tag.getId() + " : " + tag.getName() );
+        }
+    }
+
+    @Test
     public void createMultipleTags() {
         Tag tag1 = new Tag( "dafuq" );
         Tag tag2 = new Tag( "0morale" );
