@@ -94,6 +94,11 @@ public class BaseController {
         return "content";
     }
 
+    @RequestMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
+
     private List<Content> getTrendingContent() {
         return this.contentRepository.getTrendingContentList();
     }

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+    	<title>Viralsville</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	<link href="../static/css/main.css" th:href="@{css/main.css}" rel="stylesheet" media="screen"/>
+    	<link href="../static/css/admin.css" th:href="@{css/admin.css}" rel="stylesheet" media="screen"/>
+	</head>
+	<body>
+		<div id="header" th:include="header :: header"></div>
+		<div id="body-wrapper">
+			<div id="single-main-content">
+				<div id="single-content">
+					<input id="title" type="text" class="inputs" placeholder="Put content title here..." />
+					<input id="external-link" type="text" class="inputs" placeholder="Put content link here..." />
+					<select id="content-type" class="inputs">
+						<option>IMAGE</option>
+						<option>VIDEO</option>
+					</select>
+					<table>
+						<tr>
+							<td><input type="checkbox" class="checks" name="tag" value="lulz"/>Lulz</td>
+							<td><input type="checkbox" class="checks" name="tag" value="dafuq"/>Dafuq</td>
+							<td><input type="checkbox" class="checks" name="tag" value="0morale"/>0morale</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="checks" name="tag" value="fail"/>FAIL</td>
+							<td><input type="checkbox" class="checks" name="tag" value="filthy"/>filthy</td>
+							<td><input type="checkbox" class="checks" name="tag" value="mygawd"/>mygawd</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="checks" name="tag" value="best"/>Best</td>
+							<td><input type="checkbox" class="checks" name="tag" value="worst"/>Worst</td>
+							<td><input type="checkbox" class="checks" name="tag" value="sciencebitch"/>ScienceBitch!</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox" class="checks" name="tag" value="pets"/>Pets</td>
+						</tr>
+					</table>
+					<input class="admin-button" type="button" value="Submit" onclick="newContent();" />
+				</div>
+			</div>
+			<div th:include="trendingAndAds :: right-side"></div>
+		</div>
+		<div id="footer-wrapper" th:include="footer :: footer"></div>
+	</body>
+</html>
