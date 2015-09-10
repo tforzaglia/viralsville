@@ -1,14 +1,20 @@
 package com.viralsville.data;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
@@ -46,15 +52,25 @@ public class ContentRepository {
         return this.jdbc.query( "select * from content where created_date LIKE ? ORDER BY views DESC LIMIT ?", contentMapper, currentDaySql, Constants.TRENDING_PER_PAGE );
     }
 
-    public void createContent( Content content ) {
+    public Number createContent( Content content ) {
+        SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss" );
         String sql = "INSERT INTO content (title, external_link, content_type, created_date, views) VALUES(?,?,?,?,?)";
-        this.jdbc.update( sql, new Object[] {
-                content.getTitle(),
-                content.getExternalLink(),
-                content.getContentType().name(),
-                content.getCreatedDate(),
-                content.getViews()
-        } );
+
+        KeyHolder holder = new GeneratedKeyHolder();
+        this.jdbc.update( new PreparedStatementCreator() {
+            @Override
+            public PreparedStatement createPreparedStatement( Connection connection ) throws SQLException {
+                PreparedStatement ps = connection.prepareStatement( sql.toString(), Statement.RETURN_GENERATED_KEYS );
+                ps.setString( 1, content.getTitle() );
+                ps.setString( 2, content.getExternalLink() );
+                ps.setString( 3, content.getContentType().name() );
+                ps.setString( 4, formatter.format( content.getCreatedDate() ) );
+                ps.setLong( 5, content.getViews() );
+                return ps;
+            }
+        }, holder );
+
+        return holder.getKey();
     }
 
     public void updateContentViews( Content content ) {

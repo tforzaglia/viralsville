@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+
+.admin-button {
+	background: #6ECCE2;
+  	background-image: -webkit-linear-gradient(top, #6ECCE2, #6ECCE2);
+  	background-image: -moz-linear-gradient(top, #6ECCE2, #6ECCE2);
+  	background-image: -ms-linear-gradient(top, #6ECCE2, #6ECCE2);
+  	background-image: -o-linear-gradient(top, #6ECCE2, #6ECCE2);
+  	background-image: linear-gradient(to bottom, #6ECCE2, #6ECCE2);
+
+  	-webkit-border-radius: 10;
+  	-moz-border-radius: 10;
+  	border-radius: 10px;
+
+  	font-family: Arial;
+  	color: white;
+  	font-size: 20px;
+  	padding: 10px 20px 10px 20px;
+  	border: solid #F2852E 2px;
+  	text-decoration: none;
+}
+
+.admin-button:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/** http://html-generator.weebly.com/css-textbox-style.html Number 46**/
+inputs:-webkit-input-placeholder {
+	color: #b5b5b5;
+}
+
+inputs-moz-placeholder {
+	color: #b5b5b5;
+}
+
+.inputs {
+	width: 535px;
+	padding: 15px 25px;
+	margin-bottom: 10px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #9D9E9E;
+	text-shadow: 1px 1px 0 rgba(256, 256, 256, 1.0);
+	background: #FFF;
+	border: 1px solid #F2852E;
+	border-radius: 5px;
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.50);
+	-moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.50);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.50);
+}
+
+.inputs:focus {
+	background: #DFE9EC;
+	color: black;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+	outline: 0;
+}
+
+.inputs:hover {
+	background: #6ECCE2;
+	color: black;
+}
+
+#content-type {
+	width: 587px;
+}
+
+td {
+	width: 125px;
+	text-align: left;
+}
+
+.checks {
+	height: 10px;
+	width: 25px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+}
