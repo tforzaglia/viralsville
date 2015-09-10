@@ -24,12 +24,12 @@ import com.viralsville.model.Tag;
 public class BaseController {
 
     @Autowired
-    private ContentRepository contentRepository;
+    protected ContentRepository contentRepository;
 
     @Autowired
-    private TagRepository tagRepository;
+    protected TagRepository tagRepository;
 
-    private Map<String, Long> tagMap;
+    protected Map<String, Long> tagMap;
 
     private Logger log = Logger.getLogger( BaseController.class );
 
