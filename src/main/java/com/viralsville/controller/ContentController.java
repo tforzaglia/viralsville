@@ -23,7 +23,7 @@ public class ContentController extends BaseController {
     private Logger log = Logger.getLogger( ContentController.class );
 
     @Autowired
-    ContentTagsRepository contentTagsRepository;
+    private ContentTagsRepository contentTagsRepository;
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public Content getContent( @RequestParam("id") long id ) {
