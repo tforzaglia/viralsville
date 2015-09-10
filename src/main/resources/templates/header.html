@@ -10,7 +10,9 @@
 		<div th:fragment="header">
 			<div id="top-header">
 				<div id="logo-div">
-					<img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
+					<a th:href="'http://localhost:8080/latest?page=1'">
+						<img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
+					</a>
 				</div>
 				<div id="nav-items">
 					<ul>
