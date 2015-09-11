@@ -11,7 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = {
         "com.viralsville.controller",
         "com.viralsville.model",
-        "com.viralsville.data"
+        "com.viralsville.data",
+        "com.viralsville.config"
 })
 public class Application {
     public static void main( String[] args ) {
