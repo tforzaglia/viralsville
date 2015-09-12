@@ -83,4 +83,13 @@ public class ContentRepositoryTest {
             System.out.println( content.getTitle() );
         }
     }
+
+    @Test
+    public void testGetContentBySearchTerm() {
+        List<Content> contentList = this.contentRepository.getContentListBySearchTerm( "hello world" );
+        for ( Content content : contentList ) {
+            System.out.println( content.getId() );
+            System.out.println( content.getTitle() );
+        }
+    }
 }

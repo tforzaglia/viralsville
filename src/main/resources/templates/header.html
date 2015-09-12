@@ -3,8 +3,19 @@
 	<head>
     	<title>Viralsville</title>
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    	
-    	<link href="../static/css/main.css"
-          th:href="@{css/main.css}" rel="stylesheet" media="screen"/>
+    	<link href="../static/css/main.css" th:href="@{css/main.css}" rel="stylesheet" media="screen"/>
+         <script type="text/javascript"
+			src="../static/javascript/external/jquery-ui-1.11.2.custom/external/jquery/jquery.js"
+			th:src="@{javascript/external/jquery-ui-1.11.2.custom/external/jquery/jquery.js}">
+		</script>
+		<script type="text/javascript"
+			src="../static/javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js"
+			th:src="@{javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js}">
+		</script>
+		<script type="text/javascript"
+			src="../static/javascript/main.js"
+			th:src="@{javascript/main.js}">
+		</script>
 	</head>
 	<body>
 		<div th:fragment="header">
@@ -24,9 +35,9 @@
 				</div>
 				<div id="search">
 					<div id="search-box">
-						<input type="text"/>
+						<input id="search-query" type="text"/>
 					</div>
-					<div id="search-image">
+					<div id="search-image" onclick="searchContent();">
 						<img src="../static/images/searchbutton.gif" th:src="@{images/searchbutton.gif}"/>
 					</div>
 				</div>
