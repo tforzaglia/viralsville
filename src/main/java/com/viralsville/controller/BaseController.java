@@ -67,15 +67,18 @@ public class BaseController {
             contents = this.contentRepository.getContentListByPageNumber( pageNumber );
         }
 
+        // redirect to first page if no content is returned
         if ( contents.size() == 0 ) {
             this.log.info( "No content returned. Redirecting to page 1" );
             return "redirect:/latest?page=1";
         }
 
+        // check if we have reached the last page
         if ( contents.size() < Constants.CONTENT_PER_PAGE || this.contentRepository.getNumberOfRows() == Constants.CONTENT_PER_PAGE * pageNumber ) {
             model.addAttribute( "onLastPage", "true" );
             this.log.info( "Now on the last page" );
         }
+
         model.addAttribute( "contents", contents );
         model.addAttribute( "trending", this.getTrendingContent() );
         model.addAttribute( "currentPage", pageNumber );
@@ -92,6 +95,16 @@ public class BaseController {
         model.addAttribute( "trending", this.getTrendingContent() );
 
         return "content";
+    }
+
+    @RequestMapping("/search")
+    public String search( @RequestParam("searchTerm") String searchTerm, Model model ) {
+        this.log.info( "Searching for searchTerm : " + searchTerm );
+        List<Content> contents = this.contentRepository.getContentListBySearchTerm( searchTerm );
+        model.addAttribute( "contents", contents );
+        model.addAttribute( "trending", this.getTrendingContent() );
+
+        return "search";
     }
 
     @RequestMapping("/admin")

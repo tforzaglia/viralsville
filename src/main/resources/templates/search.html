@@ -12,7 +12,7 @@
 			src="../static/javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js"
 			th:src="@{javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js}">
 		</script>
-		<script type="text/javascript"
+    	<script type="text/javascript"
 			src="../static/javascript/main.js"
 			th:src="@{javascript/main.js}">
 		</script>
@@ -28,9 +28,10 @@
 				<a href="https://www.blogger.com/"><img class="social-media-icon" src="../static/images/blogger.png" th:src="@{images/blogger.png}"/></a>
 			</div>
 			<div id="main-content">
-				<div th:each="content : ${contents}" class="post">
+				<p th:if="${#lists.isEmpty(contents)}"> No content found for your search term </p>
+				<div th:if="!${#lists.isEmpty(contents)}" th:each="content : ${contents}" class="post">
 					<h2 th:text="${content.title}">Content Title</h2>
-					<div class="content">
+					<div class="content">						
 						<a th:href="'http://localhost:8080/content?id=' + ${content.id}">
 							<img th:if="${content.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${content.externalLink}"/>
 							<video th:if="${content.contentType == T(com.viralsville.model.ContentType).VIDEO}" controls="controls"> 
@@ -38,14 +39,6 @@
 							</video>
 						</a>
 					</div>
-				</div>
-				<div id="page-selector">
-					<a th:href="'http://localhost:8080/latest?page=' + ${currentPage - 1}">
-						<button th:if="${currentPage != 1}" class="page-button" type="button">Previous Page</button>
-					</a>
-					<a th:href="'http://localhost:8080/latest?page=' + ${currentPage + 1}">
-						<button th:if="${onLastPage != 'true'}" class="page-button" type="button">Next Page</button>
-					</a>
 				</div>
 			</div>
 			<div th:include="trendingAndAds :: right-side"></div>
