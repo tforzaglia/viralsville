@@ -92,6 +92,10 @@ html,body {
 	height: 100%;
 }
 
+#search-image:hover {
+	cursor: pointer;
+}
+
 #sub-header {
 	height: 40px;
 	background-color: #594F4F;
@@ -322,4 +326,12 @@ html,body {
 #single-content img {
 	width: inherit;
 	height: auto;
+}
+
+/* SEARCH PAGE */
+
+.no-results-text {
+	font-size: 20px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+	font-weight: normal;
 }
