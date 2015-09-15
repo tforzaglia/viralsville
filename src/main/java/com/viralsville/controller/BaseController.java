@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mobile.device.Device;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,7 +53,13 @@ public class BaseController {
     }
 
     @RequestMapping("/latest")
-    public String latest( @RequestParam("page") int pageNumber, @RequestParam(value = "tag", required = false) String tag, Model model ) {
+    public String latest( Device device, @RequestParam("page") int pageNumber, @RequestParam(value = "tag", required = false) String tag, Model model ) {
+        if ( device.isNormal() ) {
+            System.out.println( "Accessed from web" );
+        } else if ( device.isMobile() || device.isTablet() ) {
+            System.out.println( "Accessed from mobile" );
+        }
+
         // immediately redirect to first page if entered page number is less than 1
         if ( pageNumber < 1 ) {
             return "redirect:/latest?page=1";
