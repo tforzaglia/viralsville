@@ -16,6 +16,7 @@ mvn package && java -jar target/viralsville-0.1.0.jar
 - MySQL
 - Thymeleaf
 - HTML 5
+- CSS 3
 - Javascript
 - jQuery
 - Maven
