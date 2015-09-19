@@ -104,6 +104,7 @@ html,body {
 #sub-nav-items {
 	width: 1200px;
 	height: 40px;
+	float: left;
 }
 
 #sub-nav-items ul {
