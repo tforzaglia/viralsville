@@ -12,7 +12,7 @@
 				<div th:each="trendingContent : ${trending}" class="trending-content">
 					<a th:href="'http://localhost:8080/content?id=' + ${trendingContent.id}">
 						<img th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${trendingContent.externalLink}"/>
-						<video th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).VIDEO}" controls="controls"> 
+						<video th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).MP4}" controls="controls">
 							<source th:src="${trendingContent.externalLink}"/>
 						</video>
 						<div th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).FACEBOOK}" class="trending-video-overlay"></div>

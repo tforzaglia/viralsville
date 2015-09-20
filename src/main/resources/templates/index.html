@@ -33,11 +33,11 @@
 					<div class="content">
 						<a th:href="'http://localhost:8080/content?id=' + ${content.id}">
 							<img th:if="${content.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${content.externalLink}"/>
-							<video th:if="${content.contentType == T(com.viralsville.model.ContentType).VIDEO}" controls="controls"> 
+							<video th:if="${content.contentType == T(com.viralsville.model.ContentType).MP4}" controls="controls">
 								<source th:src="${content.externalLink}"/>
 							</video>
 							<div th:if="${content.contentType == T(com.viralsville.model.ContentType).FACEBOOK}" class="video-overlay"></div>
-							<iframe th:if="${content.contentType == T(com.viralsville.model.ContentType).FACEBOOK}" th:src="${content.externalLink}" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>							
+							<iframe th:if="${content.contentType == T(com.viralsville.model.ContentType).FACEBOOK}" th:src="${content.externalLink}" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
 						</a>
 					</div>
 				</div>
