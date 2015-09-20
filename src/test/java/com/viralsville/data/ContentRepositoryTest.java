@@ -48,8 +48,8 @@ public class ContentRepositoryTest {
     @Test
     public void testInsertContent() {
         Content content = new Content();
-        content.setTitle( "Neigh Neigh" );
-        content.setExternalLink( "https://www.facebook.com/video/embed?video_id=611395519003338" );
+        content.setTitle( "Careful! They're ruffles!" );
+        content.setExternalLink( "https://www.facebook.com/video/embed?video_id=982105495181066" );
         content.setContentType( ContentType.FACEBOOK );
         content.setCreatedDate( new Date() );
         content.setViews( 0L );

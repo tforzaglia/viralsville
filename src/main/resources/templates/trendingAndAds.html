@@ -15,6 +15,8 @@
 						<video th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).VIDEO}" controls="controls"> 
 							<source th:src="${trendingContent.externalLink}"/>
 						</video>
+						<div th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).FACEBOOK}" class="trending-video-overlay"></div>
+						<iframe th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).FACEBOOK}" th:src="${trendingContent.externalLink}" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
 					</a>
 				</div>
 			</div>
