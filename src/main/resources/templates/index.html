@@ -36,6 +36,7 @@
 							<video th:if="${content.contentType == T(com.viralsville.model.ContentType).VIDEO}" controls="controls"> 
 								<source th:src="${content.externalLink}"/>
 							</video>
+							<iframe th:if="${content.contentType == T(com.viralsville.model.ContentType).FACEBOOK}" th:src="${content.externalLink}" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>							
 						</a>
 					</div>
 				</div>

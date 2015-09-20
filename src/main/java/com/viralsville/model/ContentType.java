@@ -1,5 +1,5 @@
 package com.viralsville.model;
 
 public enum ContentType {
-    IMAGE, VIDEO, ARTICLE
+    IMAGE, ARTICLE, YOUTUBE, FACEBOOK, VIDEO
 }

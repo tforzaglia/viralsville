@@ -204,6 +204,12 @@ html,body {
 	margin: 10px auto;
 }
 
+.content iframe {
+	height: 275px;
+	width: 425px;
+	margin: 10px auto;
+}
+
 #page-selector {
 	width: inherit;
 	float: left;
