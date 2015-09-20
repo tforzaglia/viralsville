@@ -204,6 +204,21 @@ html,body {
 	margin: 10px auto;
 }
 
+.content iframe {
+	height: 275px;
+	width: 425px;
+	margin: 10px auto;
+}
+
+.video-overlay {
+	height: 275px;
+	width: 425px;
+	margin: 10px auto;
+	z-index: 10;
+	position: absolute;
+	background-image: url(../images/video_playbutton_overlay.png);
+}
+
 #page-selector {
 	width: inherit;
 	float: left;
@@ -267,6 +282,21 @@ html,body {
 	margin: 5px auto;
 }
 
+.trending-content iframe {
+	height: 140px;
+	width: 215px;
+	margin: 5px auto;
+}
+
+.trending-video-overlay {
+	height: 140px;
+	width: 215px;
+	margin: 5px auto;
+	z-index: 10;
+	position: absolute;
+	background-image: url(../images/trending_video_playbutton_overlay.png);
+}
+
 #side-ads {
 	width: 190px;
 	height: auto;
@@ -328,6 +358,11 @@ html,body {
 #single-content img {
 	width: inherit;
 	height: auto;
+}
+
+#single-content iframe {
+	width: 600px;
+	height: 400px;
 }
 
 /* SEARCH PAGE */

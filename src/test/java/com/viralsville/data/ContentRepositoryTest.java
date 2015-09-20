@@ -48,9 +48,9 @@ public class ContentRepositoryTest {
     @Test
     public void testInsertContent() {
         Content content = new Content();
-        content.setTitle( "Purrito" );
-        content.setExternalLink( "http://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" );
-        content.setContentType( ContentType.IMAGE );
+        content.setTitle( "Careful! They're ruffles!" );
+        content.setExternalLink( "https://www.facebook.com/video/embed?video_id=982105495181066" );
+        content.setContentType( ContentType.FACEBOOK );
         content.setCreatedDate( new Date() );
         content.setViews( 0L );
         this.contentRepository.createContent( content );
