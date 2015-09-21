@@ -14,6 +14,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import com.viralsville.application.Application;
 import com.viralsville.model.Content;
 import com.viralsville.model.ContentType;
+import com.viralsville.model.vo.ContentVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
@@ -91,5 +92,21 @@ public class ContentRepositoryTest {
             System.out.println( content.getId() );
             System.out.println( content.getTitle() );
         }
+    }
+
+    @Test
+    public void testFacebookUrlTranslation() {
+        ContentVO contentVO = new ContentVO();
+        contentVO.setExternalLink( "https://www.facebook.com/TheSimpsonsBestMoments/videos/982041821854100/" );
+
+        if ( contentVO.getExternalLink().endsWith( "/" ) ) {
+            contentVO.setExternalLink( contentVO.getExternalLink().substring( 0, contentVO.getExternalLink().length() - 1 ) );
+        }
+        String videoId = contentVO.getExternalLink().substring( contentVO.getExternalLink().lastIndexOf( "/" ) + 1 );
+        String convertedUrl = "https://www.facebook.com/video/embed?video_id=" + videoId;
+
+        contentVO.setExternalLink( convertedUrl );
+
+        System.out.println( contentVO.getExternalLink() );
     }
 }
