@@ -39,10 +39,23 @@ public class ContentController extends BaseController {
     public Content createContent( @RequestBody ContentVO contentVO ) {
         Content content = new Content();
         content.setTitle( contentVO.getTitle() );
+
+        // modify the external url if content is a facebook video
+        if ( ContentType.FACEBOOK.name().equals( contentVO.getContentType() ) ) {
+            if ( contentVO.getExternalLink().endsWith( "/" ) ) {
+                contentVO.setExternalLink( contentVO.getExternalLink().substring( 0, contentVO.getExternalLink().length() - 1 ) );
+            }
+            String videoId = contentVO.getExternalLink().substring( contentVO.getExternalLink().lastIndexOf( "/" ) + 1 );
+            String convertedUrl = "https://www.facebook.com/video/embed?video_id=" + videoId;
+
+            contentVO.setExternalLink( convertedUrl );
+        }
+
         content.setExternalLink( contentVO.getExternalLink() );
         content.setContentType( ContentType.valueOf( contentVO.getContentType() ) );
         content.setCreatedDate( new Date() );
         content.setViews( 0L );
+
         Number newContentId = this.contentRepository.createContent( content );
 
         this.log.info( "Created new content with id " + newContentId );
