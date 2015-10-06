@@ -90,6 +90,10 @@ public class BaseController {
         model.addAttribute( "trending", this.getTrendingContent() );
         model.addAttribute( "currentPage", pageNumber );
 
+        if ( device.isMobile() || device.isTablet() ) {
+            return "index-mobile";
+        }
+
         return "index";
     }
 
