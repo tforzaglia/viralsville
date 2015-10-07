@@ -56,14 +56,17 @@
 		</div>
 	  </div>
 	  <div id="page-selector">
-	  	<a th:href="'http://mac:8080/latest?page=' + ${currentPage - 1}">
-			<button th:if="${currentPage != 1 and hasTag != 'true' }" class="page-button" type="button">Previous Page</button>
+		<a th:href="'http://mac:8080/latest?page=' + ${currentPage - 1}  + '&amp;tag=' + ${tag}">
+			<button th:if="${currentPage != 1 and hasTag == 'true'}" class="page-button" type="button">Previous Page</button>
 		</a>
-		<a th:href="'http://mac:8080/latest?page=' + ${currentPage - 1}&tag=lulz">
-			<button th:if="${currentPage != 1 and hasTag == 'true' }" class="page-button" type="button">Previous Page</button>
+		<a th:href="'http://mac:8080/latest?page=' + ${currentPage - 1}">
+			<button th:if="${currentPage != 1 and hasTag != 'true'}" class="page-button" type="button">Previous Page</button>
+		</a>
+		<a th:href="'http://mac:8080/latest?page=' + ${currentPage + 1} + '&amp;tag=' + ${tag}">
+			<button th:if="${onLastPage != 'true' and hasTag == 'true'}" class="page-button" type="button">Next Page</button>
 		</a>
 		<a th:href="'http://mac:8080/latest?page=' + ${currentPage + 1}">
-			<button th:if="${onLastPage != 'true'}" class="page-button" type="button">Next Page</button>
+			<button th:if="${onLastPage != 'true' and hasTag != 'true'}" class="page-button" type="button">Next Page</button>
 		</a>
 	  </div>
 	  <div id="lower-ads"></div>
