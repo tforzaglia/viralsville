@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<title>Viralsville</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    	<link href="../static/css/mobile.css" th:href="@{css/mobile.css}" rel="stylesheet" media="screen"/>	  	
+	  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+		<script type="text/javascript"
+				src="../static/javascript/external/jquery-ui-1.11.2.custom/external/jquery/jquery.js"
+				th:src="@{javascript/external/jquery-ui-1.11.2.custom/external/jquery/jquery.js}">
+		</script>
+		<script type="text/javascript"
+				src="../static/javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js"
+				th:src="@{javascript/external/jquery-ui-1.11.2.custom/jquery-ui.js}">
+		</script>
+	  	<script type="text/javascript"
+	  		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+	  		th:src="@{http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js}">
+	  	</script>
+	</head>
+	<body>
+		<div id="logo-div">
+			<a th:href="'http://localhost:8080/latest?page=1'">
+				<img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
+			</a>
+		</div>
+		<div class="dropdown">
+		    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tags
+		    <span class="caret"></span></button>
+		    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=lulz'">Lulz</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=dafuq'">Dafuq</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=0morale'">0morale</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=fail'">FAIL</a></li>
+		      <li role="presentation" class="divider"></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=filthy'">filthy</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=mygawd'">mygawd</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=best'">Best</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=worst'">Worst</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=sciencebitch'">ScienceBitch!</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=pets'">Pets</a></li>
+		    </ul>
+	  </div>
+	  <div id="single-content">
+	  	<img th:if="${content.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${content.externalLink}"/>
+		<video th:if="${content.contentType == T(com.viralsville.model.ContentType).MP4}" controls="controls">
+			<source th:src="${content.externalLink}"/>
+		</video>
+		<iframe th:if="${content.contentType == T(com.viralsville.model.ContentType).FACEBOOK}" th:src="${content.externalLink}" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
+	  </div>
+	  <div id="lower-ads"></div>
+	  <div id="footer">
+	  	<div id="join-us-div">
+			<p>BECOME A SCRUB TODAY</p>
+			<a href="https://www.facebook.com/viralsville"><img src="../static/images/facebook.png" th:src="@{images/facebook.png}"/></a>
+			<a href="https://www.twitter.com/viralsville"><img src="../static/images/twitter.png" th:src="@{images/twitter.png}"/></a>
+			<a href="https://www.tumblr.com/"><img src="../static/images/tumblr.png" th:src="@{images/tumblr.png}"/></a>
+			<a href="https://www.pinterest.com/"><img src="../static/images/pinterest.png" th:src="@{images/pinterest.png}"/></a>
+			<a href="https://www.blogger.com/"><img src="../static/images/blogger.png" th:src="@{images/blogger.png}"/></a>
+		</div>
+		<div id="copyright">
+			<p>2015 Viralsville LLC. Terms Privacy</p>
+		</div>
+	  </div>
+	</body>
+</html>

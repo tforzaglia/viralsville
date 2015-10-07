@@ -94,12 +94,17 @@ public class BaseController {
     }
 
     @RequestMapping("/content")
-    public String content( @RequestParam("id") long id, Model model ) {
+    public String content( Device device, @RequestParam("id") long id, Model model ) {
         Content content = this.contentRepository.getContent( id );
         content.setViews( content.getViews() + 1 );
         this.contentRepository.updateContentViews( content );
         model.addAttribute( "content", content );
         model.addAttribute( "trending", this.getTrendingContent() );
+
+        if ( device.isMobile() || device.isTablet() ) {
+            System.out.println( "Accessed from mobile - returning mobile content page" );
+            return "content-mobile";
+        }
 
         return "content";
     }
