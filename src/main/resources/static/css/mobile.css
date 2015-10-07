@@ -73,9 +73,10 @@ html,body {
 	height: 275px;
 	width: 275px;
 	margin: 10px auto;
+	margin-left: 13px;
 	z-index: 10;
 	position: absolute;
-	background-image: url(../images/video_playbutton_overlay.png);
+	background-image: url(../images/mobile_video_playbutton_overlay.png);
 }
 
 #page-selector {
@@ -115,58 +116,42 @@ html,body {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
 
   text-decoration: none;
-  cursor: pointer;
 }
 
 /* FOOTER */
 
-#footer-wrapper {
-	width: 100%;
-	min-height: 250px;
-	min-width: 1200px;
-}
-
 #lower-ads {
 	width: inherit;
-	height: 150px;
+	height: 100px;
 	float: left;
 }
 
 #footer {
 	width: inherit;
-	height: 250px;
+	height: 200px;
 	background-color: #594F4F;
 	float: left;
 }
 
 #join-us-div {
-	margin-left: 150px;
+	text-align: center;
 	margin-top: 50px;
 	color: white;
-	font-size: 25px;
+	font-size: 15px;
 }
 
 #copyright {
 	text-align: center;
 	margin-top: 30px;
-	font-size: 20px;
+	font-size: 10px;
 	color: white;
 }
 
 /* CONTENT PAGE */
 
-#single-main-content {
-	width: 615px;
-	height: auto;
-	float: left;
-	margin-left: 120px;
-	text-align: center;
-}
-
 #single-content {
 	width: inherit;
 	height: auto;
-	margin-top: 75px;
 }
 
 #single-content img {
@@ -177,12 +162,4 @@ html,body {
 #single-content iframe {
 	width: 600px;
 	height: 400px;
-}
-
-/* SEARCH PAGE */
-
-.no-results-text {
-	font-size: 20px;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
-	font-weight: normal;
 }

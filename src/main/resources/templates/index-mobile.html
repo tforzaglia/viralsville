@@ -42,20 +42,6 @@
 		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://localhost:8080/latest?page=1&amp;tag=pets'">Pets</a></li>
 		    </ul>
 	  </div>
-	  			<!-- <div class="post">
-					<h2>Neigh Neigh</h2>
-					<div class="content" onclick="alert('You are clicking on me');">
-						<a href="http://www.viralsville.com/content/1">						
-							<iframe onclick="alert('You are clicking on me');" src="https://www.facebook.com/video/embed?video_id=982041821854100" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen scrolling="no"></iframe>
-						</a>
-					</div>
-				</div>
-				<div class="post">
-					<h2>Github you so nasty...</h2>
-					<div class="content">
-  						<object data="http://www.youtube.com/embed/W7qWa52k-nE"></object>
-					</div>
-				</div> -->
 	  <div th:each="content : ${contents}" class="post">
 	  	<h2 th:text="${content.title}">Content Title</h2>
 		<div class="content">
@@ -77,5 +63,19 @@
 			<button th:if="${onLastPage != 'true'}" class="page-button" type="button">Next Page</button>
 		</a>
 	  </div>
+	  <div id="lower-ads"></div>
+		<div id="footer">
+			<div id="join-us-div">
+				<p>BECOME A SCRUB TODAY</p>
+				<a href="https://www.facebook.com/viralsville"><img src="../static/images/facebook.png" th:src="@{images/facebook.png}"/></a>
+				<a href="https://www.twitter.com/viralsville"><img src="../static/images/twitter.png" th:src="@{images/twitter.png}"/></a>
+				<a href="https://www.tumblr.com/"><img src="../static/images/tumblr.png" th:src="@{images/tumblr.png}"/></a>
+				<a href="https://www.pinterest.com/"><img src="../static/images/pinterest.png" th:src="@{images/pinterest.png}"/></a>
+				<a href="https://www.blogger.com/"><img src="../static/images/blogger.png" th:src="@{images/blogger.png}"/></a>
+			</div>
+			<div id="copyright">
+				<p>2015 Viralsville LLC. Terms Privacy</p>
+			</div>
+		</div>
 	</body>
 </html>

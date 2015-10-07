@@ -54,12 +54,6 @@ public class BaseController {
 
     @RequestMapping("/latest")
     public String latest( Device device, @RequestParam("page") int pageNumber, @RequestParam(value = "tag", required = false) String tag, Model model ) {
-        if ( device.isNormal() ) {
-            System.out.println( "Accessed from web" );
-        } else if ( device.isMobile() || device.isTablet() ) {
-            System.out.println( "Accessed from mobile" );
-        }
-
         // immediately redirect to first page if entered page number is less than 1
         if ( pageNumber < 1 ) {
             return "redirect:/latest?page=1";
@@ -91,9 +85,11 @@ public class BaseController {
         model.addAttribute( "currentPage", pageNumber );
 
         if ( device.isMobile() || device.isTablet() ) {
+            System.out.println( "Accessed from mobile - returning mobile index page" );
             return "index-mobile";
         }
 
+        System.out.println( "Accessed from web" );
         return "index";
     }
 
