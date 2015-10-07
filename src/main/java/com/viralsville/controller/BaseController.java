@@ -54,12 +54,6 @@ public class BaseController {
 
     @RequestMapping("/latest")
     public String latest( Device device, @RequestParam("page") int pageNumber, @RequestParam(value = "tag", required = false) String tag, Model model ) {
-        if ( device.isNormal() ) {
-            System.out.println( "Accessed from web" );
-        } else if ( device.isMobile() || device.isTablet() ) {
-            System.out.println( "Accessed from mobile" );
-        }
-
         // immediately redirect to first page if entered page number is less than 1
         if ( pageNumber < 1 ) {
             return "redirect:/latest?page=1";
@@ -90,16 +84,27 @@ public class BaseController {
         model.addAttribute( "trending", this.getTrendingContent() );
         model.addAttribute( "currentPage", pageNumber );
 
+        if ( device.isMobile() || device.isTablet() ) {
+            System.out.println( "Accessed from mobile - returning mobile index page" );
+            return "index-mobile";
+        }
+
+        System.out.println( "Accessed from web" );
         return "index";
     }
 
     @RequestMapping("/content")
-    public String content( @RequestParam("id") long id, Model model ) {
+    public String content( Device device, @RequestParam("id") long id, Model model ) {
         Content content = this.contentRepository.getContent( id );
         content.setViews( content.getViews() + 1 );
         this.contentRepository.updateContentViews( content );
         model.addAttribute( "content", content );
         model.addAttribute( "trending", this.getTrendingContent() );
+
+        if ( device.isMobile() || device.isTablet() ) {
+            System.out.println( "Accessed from mobile - returning mobile content page" );
+            return "content-mobile";
+        }
 
         return "content";
     }
