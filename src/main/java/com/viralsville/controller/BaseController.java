@@ -63,6 +63,8 @@ public class BaseController {
         if ( tag != null ) {
             Long tagId = this.tagMap.get( tag );
             this.log.info( "Tag name = " + tag + " tag id = " + tagId );
+            model.addAttribute( "hasTag", "true" );
+            model.addAttribute( "tag", tag );
             contents = this.contentRepository.getContentListByPageNumberAndTag( pageNumber, tagId );
         } else {
             contents = this.contentRepository.getContentListByPageNumber( pageNumber );
