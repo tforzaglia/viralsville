@@ -58,7 +58,7 @@ html,body {
 	width: 90px;
 	display: table-cell;
 
-	text-align: center;
+	padding-right: 15px;
 	font-size: 30px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 	font-weight: normal;
@@ -122,16 +122,16 @@ html,body {
 }
 
 .sub-nav-item {
-	width: 90px;
+	width: 60px;
 
 	display: table-cell;
 
+	padding-right: 25px;
 	text-align: center;
 	font-size: 20px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 	font-weight: normal;
 
-	position: relative;
   	top: 50%;
   	transform: translateY(50%);
   	-webkit-transform: translateY(50%);
