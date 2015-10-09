@@ -12,21 +12,27 @@ newContent = function() {
 	};
 	console.log(jsonPost);
 	
-	$.ajax({
-		type : "POST",
-		url : "content/create",
-		contentType : "application/json; charset=utf-8",
-		data : JSON.stringify(jsonPost),
-		traditional: true,
-		datatype : "json",
-		success : function(resp) {
-			console.log(resp);
-			$("#title").val("");
-			$("#external-link").val("");
-			$('#single-content').find('input[type=checkbox]:checked').prop('checked', false);
-		},
-		error : function(resp) {
-			console.log("Error saving new content to database");
-		}
-	});
+	if($("#title").val() != "" && $("#external-link").val() != "") {
+		$.ajax({
+			type : "POST",
+			url : "content/create",
+			contentType : "application/json; charset=utf-8",
+			data : JSON.stringify(jsonPost),
+			traditional: true,
+			datatype : "json",
+			success : function(resp) {
+				console.log(resp);
+				$("#title").val("");
+				$("#external-link").val("");
+				$('#single-content').find('input[type=checkbox]:checked').prop('checked', false);
+			},
+			error : function(resp) {
+				console.log("Error saving new content to database");
+			}
+		});
+	} else {
+		console.log("Title was " + $("#title").val());
+		console.log("Link was " + $("#external-link").val());
+		console.log("Not sending create request");
+	}
 }
