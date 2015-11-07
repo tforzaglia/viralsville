@@ -21,16 +21,16 @@
 		<div th:fragment="header">
 			<div id="top-header">
 				<div id="logo-div">
-					<a th:href="'http://localhost:8080/latest?page=1'">
+					<a th:href="${baseUrl} + '/latest?page=1'">
 						<img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
 					</a>
 				</div>
 				<div id="nav-items">
 					<ul>
-						<li class="nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=lulz'">Lulz</a></li>
-						<li class="nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=dafuq'">Dafuq</a></li>
-						<li class="nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=0morale'">0morale</a></li>
-						<li class="nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=fail'">FAIL</a></li>
+						<li class="nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=lulz'">Lulz</a></li>
+						<li class="nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=dafuq'">Dafuq</a></li>
+						<li class="nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=0morale'">0morale</a></li>
+						<li class="nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=fail'">FAIL</a></li>
 					</ul>
 				</div>
 				<div id="search">
@@ -45,12 +45,12 @@
 			<div id="sub-header">
 				<div id="sub-nav-items">
 					<ul>
-						<li class="sub-nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=filthy'">filthy</a></li>
-						<li class="sub-nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=mygawd'">mygawd</a></li>
-						<li class="sub-nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=best'">Best</a></li>
-						<li class="sub-nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=worst'">Worst</a></li>
-						<li class="sub-nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=sciencebitch'">ScienceBitch!</a></li>
-						<li class="sub-nav-item stretch"><a th:href="'http://localhost:8080/latest?page=1&amp;tag=pets'">Pets</a></li>
+						<li class="sub-nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=filthy'">filthy</a></li>
+						<li class="sub-nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=mygawd'">mygawd</a></li>
+						<li class="sub-nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=best'">Best</a></li>
+						<li class="sub-nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=worst'">Worst</a></li>
+						<li class="sub-nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=sciencebitch'">ScienceBitch!</a></li>
+						<li class="sub-nav-item stretch"><a th:href="${baseUrl} + '/latest?page=1&amp;tag=pets'">Pets</a></li>
 					</ul>
 				</div>
 			</div>

@@ -46,10 +46,11 @@ $(document).ready(function() {
 });
 
 searchContent = function() {
+	var hostUrl = window.location.host;
 	var searchTerm = $("#search-query").val();
 	if (searchTerm !== "") {
 		console.log("Hitting the search endpoint for search term " + searchTerm);
-		window.location.href = "http://localhost:8080/search?searchTerm=" + searchTerm;
+		window.location.href = "http://" + hostUrl +"/search?searchTerm=" + searchTerm;
 	}
 };
 

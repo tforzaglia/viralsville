@@ -32,7 +32,7 @@
 				<div th:if="!${#lists.isEmpty(contents)}" th:each="content : ${contents}" class="post">
 					<h2 th:text="${content.title}">Content Title</h2>
 					<div class="content">						
-						<a th:href="'http://localhost:8080/content?id=' + ${content.id}">
+						<a th:href="${baseUrl} + '/content?id=' + ${content.id}">
 							<img th:if="${content.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${content.externalLink}"/>
 							<video th:if="${content.contentType == T(com.viralsville.model.ContentType).MP4}" controls="controls">
 								<source th:src="${content.externalLink}"/>

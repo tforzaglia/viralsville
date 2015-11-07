@@ -31,7 +31,7 @@
 				<div th:each="content : ${contents}" class="post">
 					<h2 th:text="${content.title}">Content Title</h2>
 					<div class="content">
-						<a th:href="'http://localhost:8080/content?id=' + ${content.id}">
+						<a th:href="${baseUrl} + '/content?id=' + ${content.id}">
 							<img th:if="${content.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${content.externalLink}"/>
 							<video th:if="${content.contentType == T(com.viralsville.model.ContentType).MP4}" controls="controls">
 								<source th:src="${content.externalLink}"/>
@@ -42,16 +42,16 @@
 					</div>
 				</div>
 				<div id="page-selector">
-					<a th:href="'http://mac:8080/latest?page=' + ${currentPage - 1}  + '&amp;tag=' + ${tag}">
+					<a th:href="${baseUrl} + '/latest?page=' + ${currentPage - 1}  + '&amp;tag=' + ${tag}">
 						<button th:if="${currentPage != 1 and hasTag == 'true'}" class="page-button" type="button">Previous Page</button>
 					</a>
-					<a th:href="'http://mac:8080/latest?page=' + ${currentPage - 1}">
+					<a th:href="${baseUrl} + '/latest?page=' + ${currentPage - 1}">
 						<button th:if="${currentPage != 1 and hasTag != 'true'}" class="page-button" type="button">Previous Page</button>
 					</a>
-					<a th:href="'http://mac:8080/latest?page=' + ${currentPage + 1} + '&amp;tag=' + ${tag}">
+					<a th:href="${baseUrl} + '/latest?page=' + ${currentPage + 1} + '&amp;tag=' + ${tag}">
 						<button th:if="${onLastPage != 'true' and hasTag == 'true'}" class="page-button" type="button">Next Page</button>
 					</a>
-					<a th:href="'http://mac:8080/latest?page=' + ${currentPage + 1}">
+					<a th:href="${baseUrl} + '/latest?page=' + ${currentPage + 1}">
 						<button th:if="${onLastPage != 'true' and hasTag != 'true'}" class="page-button" type="button">Next Page</button>
 					</a>
 				</div>

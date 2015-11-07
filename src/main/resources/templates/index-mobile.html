@@ -21,7 +21,7 @@
 	</head>
 	<body>
 		<div id="logo-div">
-			<a th:href="'http://mac:8080/latest?page=1'">
+			<a th:href="${baseUrl} + '/latest?page=1'">
 				<img src="../static/images/logo.png" th:src="@{images/logo.png}"/>
 			</a>
 		</div>
@@ -29,23 +29,23 @@
 		    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Tags
 		    <span class="caret"></span></button>
 		    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=lulz'">Lulz</a></li>
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=dafuq'">Dafuq</a></li>
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=0morale'">0morale</a></li>
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=fail'">FAIL</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=lulz'">Lulz</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=dafuq'">Dafuq</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=0morale'">0morale</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=fail'">FAIL</a></li>
 		      <li role="presentation" class="divider"></li>
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=filthy'">filthy</a></li>
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=mygawd'">mygawd</a></li>
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=best'">Best</a></li>
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=worst'">Worst</a></li>
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=sciencebitch'">ScienceBitch!</a></li>
-		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="'http://mac:8080/latest?page=1&amp;tag=pets'">Pets</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=filthy'">filthy</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=mygawd'">mygawd</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=best'">Best</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=worst'">Worst</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=sciencebitch'">ScienceBitch!</a></li>
+		      <li role="presentation"><a role="menuitem" tabindex="-1" th:href="${baseUrl} + '/latest?page=1&amp;tag=pets'">Pets</a></li>
 		    </ul>
 	  </div>
 	  <div th:each="content : ${contents}" class="post">
 	  	<h2 th:text="${content.title}">Content Title</h2>
 		<div class="content">
-			<a th:href="'http://mac:8080/content?id=' + ${content.id}">
+			<a th:href="${baseUrl} + '/content?id=' + ${content.id}">
 				<img th:if="${content.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${content.externalLink}"/>
 				<video th:if="${content.contentType == T(com.viralsville.model.ContentType).MP4}" controls="controls">
 					<source th:src="${content.externalLink}"/>
@@ -56,16 +56,16 @@
 		</div>
 	  </div>
 	  <div id="page-selector">
-		<a th:href="'http://mac:8080/latest?page=' + ${currentPage - 1}  + '&amp;tag=' + ${tag}">
+		<a th:href="${baseUrl} + '/latest?page=' + ${currentPage - 1}  + '&amp;tag=' + ${tag}">
 			<button th:if="${currentPage != 1 and hasTag == 'true'}" class="page-button" type="button">Previous Page</button>
 		</a>
-		<a th:href="'http://mac:8080/latest?page=' + ${currentPage - 1}">
+		<a th:href="${baseUrl} + '/latest?page=' + ${currentPage - 1}">
 			<button th:if="${currentPage != 1 and hasTag != 'true'}" class="page-button" type="button">Previous Page</button>
 		</a>
-		<a th:href="'http://mac:8080/latest?page=' + ${currentPage + 1} + '&amp;tag=' + ${tag}">
+		<a th:href="${baseUrl} + '/latest?page=' + ${currentPage + 1} + '&amp;tag=' + ${tag}">
 			<button th:if="${onLastPage != 'true' and hasTag == 'true'}" class="page-button" type="button">Next Page</button>
 		</a>
-		<a th:href="'http://mac:8080/latest?page=' + ${currentPage + 1}">
+		<a th:href="${baseUrl} + '/latest?page=' + ${currentPage + 1}">
 			<button th:if="${onLastPage != 'true' and hasTag != 'true'}" class="page-button" type="button">Next Page</button>
 		</a>
 	  </div>

@@ -10,7 +10,7 @@
 		<div th:fragment="right-side">
 			<div id="trending">
 				<div th:each="trendingContent : ${trending}" class="trending-content">
-					<a th:href="'http://localhost:8080/content?id=' + ${trendingContent.id}">
+					<a th:href="${baseUrl} + '/content?id=' + ${trendingContent.id}">
 						<img th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).IMAGE}" th:src="${trendingContent.externalLink}"/>
 						<video th:if="${trendingContent.contentType == T(com.viralsville.model.ContentType).MP4}" controls="controls">
 							<source th:src="${trendingContent.externalLink}"/>
