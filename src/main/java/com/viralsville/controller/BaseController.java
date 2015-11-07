@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class BaseController {
     }
 
     @RequestMapping("/")
-    public String index( Model model ) {
+    public String index( Model model, HttpServletRequest request ) {
         List<Content> contents = this.contentRepository.getContentListByPageNumber( 1 );
         model.addAttribute( "contents", contents );
         model.addAttribute( "currentPage", 1 );
@@ -53,7 +54,7 @@ public class BaseController {
     }
 
     @RequestMapping("/latest")
-    public String latest( Device device, @RequestParam("page") int pageNumber, @RequestParam(value = "tag", required = false) String tag, Model model ) {
+    public String latest( Device device, @RequestParam("page") int pageNumber, @RequestParam(value = "tag", required = false) String tag, Model model, HttpServletRequest request ) {
         // immediately redirect to first page if entered page number is less than 1
         if ( pageNumber < 1 ) {
             return "redirect:/latest?page=1";
@@ -85,6 +86,7 @@ public class BaseController {
         model.addAttribute( "contents", contents );
         model.addAttribute( "trending", this.getTrendingContent() );
         model.addAttribute( "currentPage", pageNumber );
+        model.addAttribute( "baseUrl", request.getRequestURL().toString().replace( request.getRequestURI(), request.getContextPath() ) );
 
         if ( device.isMobile() || device.isTablet() ) {
             System.out.println( "Accessed from mobile - returning mobile index page" );
@@ -96,12 +98,13 @@ public class BaseController {
     }
 
     @RequestMapping("/content")
-    public String content( Device device, @RequestParam("id") long id, Model model ) {
+    public String content( Device device, @RequestParam("id") long id, Model model, HttpServletRequest request ) {
         Content content = this.contentRepository.getContent( id );
         content.setViews( content.getViews() + 1 );
         this.contentRepository.updateContentViews( content );
         model.addAttribute( "content", content );
         model.addAttribute( "trending", this.getTrendingContent() );
+        model.addAttribute( "baseUrl", request.getRequestURL().toString().replace( request.getRequestURI(), request.getContextPath() ) );
 
         if ( device.isMobile() || device.isTablet() ) {
             System.out.println( "Accessed from mobile - returning mobile content page" );
@@ -112,17 +115,20 @@ public class BaseController {
     }
 
     @RequestMapping("/search")
-    public String search( @RequestParam("searchTerm") String searchTerm, Model model ) {
+    public String search( @RequestParam("searchTerm") String searchTerm, Model model, HttpServletRequest request ) {
         this.log.info( "Searching for searchTerm : " + searchTerm );
         List<Content> contents = this.contentRepository.getContentListBySearchTerm( searchTerm );
         model.addAttribute( "contents", contents );
         model.addAttribute( "trending", this.getTrendingContent() );
+        model.addAttribute( "baseUrl", request.getRequestURL().toString().replace( request.getRequestURI(), request.getContextPath() ) );
 
         return "search";
     }
 
     @RequestMapping("/admin")
-    public String admin() {
+    public String admin( Model model, HttpServletRequest request ) {
+        model.addAttribute( "baseUrl", request.getRequestURL().toString().replace( request.getRequestURI(), request.getContextPath() ) );
+
         return "admin";
     }
 
